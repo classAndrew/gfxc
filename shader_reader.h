@@ -12,4 +12,5 @@ void init_shader(shader_t*, char*, char*);
 void shad_use(shader_t*);
 void shad_uni(shader_t *shad, char* uniform, float val);
 void shad_uni4f(shader_t *shad, char* uniform, float f1, float f2, float f3, float f4);
+void shad_uni1i(shader_t *shad, char *uniform, int i);
 #endif
