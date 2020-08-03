@@ -22,7 +22,7 @@ void init_shader(shader_t* shad_p, char *vertloc, char *fragloc) {
     glCompileShader(shad_p->vert_shad);
 
     shad_p->frag_shad = glCreateShader(GL_FRAGMENT_SHADER);
-    const char *fsrc = shadsrc(fragloc); 
+    const char *fsrc = shadsrc(fragloc); // Might have to free both of these 
     glShaderSource(shad_p->frag_shad, 1, &fsrc, NULL);
     glCompileShader(shad_p->frag_shad);
 
@@ -45,4 +45,9 @@ void shad_uni(shader_t *shad, char* uniform, float val) {
 void shad_uni4f(shader_t *shad, char* uniform, float f1, float f2, float f3, float f4) {
     int uniloc = glGetUniformLocation(shad->shad_prog, uniform);
     glUniform4f(uniloc, f1, f2, f3, f4);
+}
+
+void shad_uni1i(shader_t *shad, char *uniform, int i) {
+    int uniloc = glGetUniformLocation(shad->shad_prog, uniform);
+    glUniform1i(uniloc, i);
 }
